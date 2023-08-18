@@ -1,0 +1,7 @@
+bot_venv/
+chrome-win64/
+__pycache__/
+chrome-win64.zip
+chromedriver-win64.zip
+token.json
+credentials.json
