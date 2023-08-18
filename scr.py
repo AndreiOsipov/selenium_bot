@@ -41,7 +41,10 @@ class PortugalBot:
             'намерены остаться':SelectFieldWrapper('cb_qt_dias', self.driver, 5,default_value='более 90',international_codes=self.international_codes["DAYS NUMBER"]),
             'намерены проживать вместе':SelectFieldWrapper('cb_estabelecer_residencia', self.driver, 5,default_value='нет',international_codes=self.international_codes['WANT LIVE TOGETHER']),
             'намерены остаться дней':SelectFieldWrapper('cb_pretende_ficar', self.driver, 5,default_value="более года",international_codes=self.international_codes["WANT STAY AFTER"]),
-            'цель пребывания':SelectFieldWrapper('cb_motivo_estada_mais1ano', self.driver, 5,international_codes=self.international_codes['GOAL']),
+            'цель пребывания':SelectFieldWrapper('cb_motivo_estada_mais1ano', self.driver, 5,international_codes=self.international_codes['GOAL'],setup_states=self.states["GOALS"]),
+            'каков вид работы':SelectFieldWrapper('cb_tipo_trabalho_mais1ano',self.driver,international_codes=self.international_codes["WORK TYPES"],required_state='work'),
+            'укажите цель обучения':SelectFieldWrapper('cb_obj_estudo_mais1ano',self.driver,international_codes=self.international_codes["STUDY GOALS"],  required_state='study',setup_states=self.states["STUDY GOALS"]),
+            'программа':SelectFieldWrapper('cb_ensino_superior',self.driver,international_codes=self.international_codes["PROGRAMS"], required_state='university')
         }
 
         self.identity_wrappers = {
