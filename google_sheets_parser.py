@@ -30,8 +30,7 @@ class GoogleAPILogin:
             if creds and creds.expired and creds.refresh_token:
                 creds.refresh(Request())
             else:
-                flow = InstalledAppFlow.from_client_secrets_file(
-                    'credentials.json', SCOPES)
+                flow = InstalledAppFlow.from_client_secrets_file(os.path.join(os.path.abspath(os.path.dirname(__file__)), 'credentials.json'), SCOPES)
                 creds = flow.run_local_server(port=0)
             # Save the credentials for the next run
             with open('token.json', 'w') as token:
@@ -140,7 +139,7 @@ class ClientsBuilder:
             clients.append(client)
         return clients
 
-# if __name__ == '__main__':
-#     cl_builder = ClientsBuilder()
-#     clients = cl_builder.build_clients(2, 20)
-#     print(clients)
+if __name__ == '__main__':
+    cl_builder = ClientsBuilder()
+    clients = cl_builder.build_clients(2, 20)
+    print(clients)
